@@ -11,6 +11,6 @@ spring:
           predicates:
             - Path=/api/libros/**
           filters:
-            - StripPrefix=0          
+            - StripPrefix=2          
             
             
