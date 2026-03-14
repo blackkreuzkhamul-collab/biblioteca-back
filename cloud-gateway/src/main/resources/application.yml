@@ -10,5 +10,7 @@ spring:
           uri: ${LIBROS_SERVICE_URL:http://localhost:8081}
           predicates:
             - Path=/api/libros/**
+          filters:
+            - StripPrefix=0          
             
             
