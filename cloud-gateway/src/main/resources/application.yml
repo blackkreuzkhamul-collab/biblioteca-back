@@ -1,11 +1,14 @@
 server:
-  port: 8080
+  port: ${PORT:8080} # Railway asigna el puerto dinámicamente
 
 spring:
   cloud:
     gateway:
       routes:
         - id: libros-service
-          uri: http://libros-container:8081
+          # Busca la variable LIBROS_SERVICE_URL; si no existe, usa localhost
+          uri: ${LIBROS_SERVICE_URL:http://localhost:8081}
           predicates:
             - Path=/api/libros/**
+            
+            
