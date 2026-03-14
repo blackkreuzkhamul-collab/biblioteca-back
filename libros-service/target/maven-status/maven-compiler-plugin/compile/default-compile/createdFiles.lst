@@ -1,0 +1,5 @@
+com\biblioteca\libros\model\Libro.class
+com\biblioteca\libros\LibrosServiceApplication.class
+com\biblioteca\libros\service\LibroService.class
+com\biblioteca\libros\config\ElasticsearchConfig.class
+com\biblioteca\libros\controller\LibroController.class

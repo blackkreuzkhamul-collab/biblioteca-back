@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    networks:
+      - biblioteca-network
+
+  libros-service:
+    image: libros-service
+    container_name: libros-container
+    ports:
+      - "8081:8081"
+    networks:
+      - biblioteca-network
+
+  gateway:
+    image: cloud-gateway
+    container_name: gateway-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - libros-service
+    networks:
+      - biblioteca-network
+
+networks:
+  biblioteca-network:
+    driver: bridge
